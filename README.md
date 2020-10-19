@@ -6,7 +6,7 @@
 git clone https://github.com/raitonoberu/rutracker-api
 cd rutracker-api
 pip install -r requirements.txt
-mv -r rutracker_api *your project folder*
+cp -r rutracker_api *your project folder*
 ```
 
 ## Usage
@@ -23,3 +23,6 @@ mv -r rutracker_api *your project folder*
 >>> result.get_magnet()
 'magnet:?xt=urn%3Abtih%3AB2EDD8F9A0BEB1368A5EDEBBAB4907B53A69DCCA&tr=http%3A%2F%2Fbt2.t-ru.org%2Fann%3Fmagnet&dn=%5Bamd64%5D+Ubuntu%2APack+20.04+MATE+%28%D1%81%D0%B5%D0%BD%D1%82%D1%8F%D0%B1%D1%80%D1%8C+2020%29&as=http%3A%2F%2Frutracker.org%2Fforum%2Fviewtopic.php%3Ft%3D5956108'
 ```
+
+## Documentation
+Coming soon!
