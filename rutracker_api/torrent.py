@@ -4,6 +4,8 @@ from .enums import Url
 
 
 class Torrent(object):
+    """Stores data about the torrent"""
+
     def __init__(
         self,
         author=None,
@@ -35,13 +37,19 @@ class Torrent(object):
         self.hash = hash
         self.magnet = magnet
 
-    def formatted_size(self):
+    def formatted_size(self) -> str:
+        """Returns the size formated as XXX KB/MB/GB/TB"""
+
         return format_size(self.size)
 
-    def formatted_registered(self):
+    def formatted_registered(self) -> str:
+        """Returns the date formatted as YYYY-MM-DD"""
+
         return datetime.utcfromtimestamp(self.registered).strftime("%Y-%m-%d")
 
-    def get_magnet(self, hash=None):
+    def get_magnet(self, hash: str = None) -> str:
+        """Returns the magnet link. Requires hash"""
+
         if self.magnet:
             return self.magnet
         if hash:
@@ -60,7 +68,7 @@ class Torrent(object):
     def __repr__(self):
         return f"<Torrent {self.topic_id}>"
 
-    def as_dict(self):
+    def as_dict(self) -> dict:
         return {
             "author": self.author,
             "category": self.category,

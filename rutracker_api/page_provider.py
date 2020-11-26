@@ -1,4 +1,4 @@
-from .enums import Url, Sort, Order
+from .enums import Url
 from .exceptions import (
     AuthorizationException,
     NotAuthorizedException,
@@ -24,8 +24,6 @@ class PageProvider:
             raise RedirectException(response.headers["Location"])
         if response.status_code != 302:
             raise AuthorizationException
-        if response.status_code:
-            pass
 
         self.cookie = response.headers["set-cookie"]
         self.authorized = True
@@ -39,8 +37,8 @@ class PageProvider:
 
         params = {"nm": query, "start": (page - 1) * 50}
         body = {
-            "s": Sort[sort.upper()].value,
-            "o": Order[order.upper()].value,
+            "s": sort,
+            "o": order,
         }
         headers = {"Cookie": self.cookie}
         response = self.session.post(
